@@ -38,57 +38,41 @@ nb_path: "nbs/00_distance.ipynb"
     {% raw %}
     
 <div class="cell border-box-sizing code_cell rendered">
-
-</div>
-    {% endraw %}
-
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>from stackoverflow:</p>
-<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">pairwise_dist</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
-    <span class="n">xx</span><span class="p">,</span> <span class="n">yy</span><span class="p">,</span> <span class="n">zz</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">mm</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">x</span><span class="o">.</span><span class="n">t</span><span class="p">()),</span> <span class="n">torch</span><span class="o">.</span><span class="n">mm</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="n">y</span><span class="o">.</span><span class="n">t</span><span class="p">()),</span> <span class="n">torch</span><span class="o">.</span><span class="n">mm</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="o">.</span><span class="n">t</span><span class="p">())</span>
-    <span class="n">rx</span> <span class="o">=</span> <span class="p">(</span><span class="n">xx</span><span class="o">.</span><span class="n">diag</span><span class="p">()</span><span class="o">.</span><span class="n">unsqueeze</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">expand_as</span><span class="p">(</span><span class="n">xx</span><span class="p">))</span>
-    <span class="n">ry</span> <span class="o">=</span> <span class="p">(</span><span class="n">yy</span><span class="o">.</span><span class="n">diag</span><span class="p">()</span><span class="o">.</span><span class="n">unsqueeze</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">expand_as</span><span class="p">(</span><span class="n">yy</span><span class="p">))</span>
-    <span class="n">P</span> <span class="o">=</span> <span class="p">(</span><span class="n">rx</span><span class="o">.</span><span class="n">t</span><span class="p">()</span> <span class="o">+</span> <span class="n">ry</span> <span class="o">-</span> <span class="mi">2</span><span class="o">*</span><span class="n">zz</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">P</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-    {% raw %}
-    
-<div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">timeit</span><span class="o">.</span><span class="n">Timer</span><span class="p">(</span><span class="k">lambda</span> <span class="p">:</span> <span class="mi">1</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">repeat</span><span class="p">(</span><span class="n">repeat</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">number</span><span class="o">=</span><span class="mi">7</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%</span><span class="k">load_ext</span> autoreload
+<span class="o">%</span><span class="k">autoreload</span> 2
 </pre></div>
 
     </div>
 </div>
 </div>
 
-<div class="output_wrapper">
-<div class="output">
-
-<div class="output_area">
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>[7.399998139590025e-06, 4.1000021155923605e-06, 4.0000013541430235e-06]</pre>
 </div>
+    {% endraw %}
 
-</div>
-
-</div>
-</div>
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
 
 </div>
     {% endraw %}
 
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Direct-pairwise-distances">Direct pairwise distances<a class="anchor-link" href="#Direct-pairwise-distances"> </a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Example positions and distances</p>
+
+</div>
+</div>
+</div>
     {% raw %}
     
 <div class="cell border-box-sizing code_cell rendered">
@@ -127,7 +111,7 @@ nb_path: "nbs/00_distance.ipynb"
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h2 id="PairwiseDistance" class="doc_header"><code>class</code> <code>PairwiseDistance</code><a href="https://github.com/eschmidt42/md/tree/master/md/distance.py#L14" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>PairwiseDistance</code>()</p>
+<h2 id="PairwiseDistance" class="doc_header"><code>class</code> <code>PairwiseDistance</code><a href="https://github.com/eschmidt42/md/tree/master/md/distance.py#L18" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>PairwiseDistance</code>()</p>
 </blockquote>
 
 </div>
@@ -159,7 +143,7 @@ nb_path: "nbs/00_distance.ipynb"
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Using the Gram matrix to compute pairwise distances</p>
+<p>Using the Gram matrix to compute pairwise distances: <a href="https://math.stackexchange.com/questions/2240429/pairwise-distance-matrix">stackexchange</a></p>
 
 </div>
 </div>
@@ -182,7 +166,7 @@ nb_path: "nbs/00_distance.ipynb"
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="pairwise_dist_gram" class="doc_header"><code>pairwise_dist_gram</code><a href="https://github.com/eschmidt42/md/tree/master/md/distance.py#L19" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>pairwise_dist_gram</code>(<strong><code>x</code></strong>:<code>Tensor</code>, <strong><code>y</code></strong>:<code>Tensor</code>, <strong><code>flat</code></strong>:<code>bool</code>=<em><code>True</code></em>)</p>
+<h4 id="pairwise_dist_gram" class="doc_header"><code>pairwise_dist_gram</code><a href="https://github.com/eschmidt42/md/tree/master/md/distance.py#L23" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>pairwise_dist_gram</code>(<strong><code>x</code></strong>:<code>Tensor</code>, <strong><code>y</code></strong>:<code>Tensor</code>, <strong><code>flat</code></strong>:<code>bool</code>=<em><code>True</code></em>)</p>
 </blockquote>
 
 </div>
@@ -210,31 +194,6 @@ nb_path: "nbs/00_distance.ipynb"
 </div>
 </div>
 
-<div class="output_wrapper">
-<div class="output">
-
-<div class="output_area">
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>CPU times: user 0 ns, sys: 0 ns, total: 0 ns
-Wall time: 2.34 ms
-</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>tensor([2., 8., 2.])</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
 </div>
     {% endraw %}
 
@@ -247,38 +206,6 @@ Wall time: 2.34 ms
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%time</span>it
 <span class="n">pairwise_dist_gram</span><span class="p">(</span><span class="n">positions</span><span class="p">,</span> <span class="n">positions</span><span class="p">)</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-<div class="output_area">
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>36.1 µs ± 1.88 µs per loop (mean ± std. dev. of 7 runs, 10000 loops each)
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-    {% endraw %}
-
-    {% raw %}
-    
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">assert</span> <span class="n">torch</span><span class="o">.</span><span class="n">isclose</span><span class="p">(</span><span class="n">correct_distances</span><span class="p">,</span> 
-              <span class="n">pdist</span><span class="p">(</span><span class="n">positions</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s1">&#39;stackoverflow&#39;</span><span class="p">))</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
 </pre></div>
 
     </div>
@@ -306,7 +233,7 @@ Wall time: 2.34 ms
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="stackoverflow_pairwise_distance" class="doc_header"><code>stackoverflow_pairwise_distance</code><a href="https://github.com/eschmidt42/md/tree/master/md/distance.py#L38" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>stackoverflow_pairwise_distance</code>(<strong><code>x</code></strong>:<code>Tensor</code>)</p>
+<h4 id="stackoverflow_pairwise_distance" class="doc_header"><code>stackoverflow_pairwise_distance</code><a href="https://github.com/eschmidt42/md/tree/master/md/distance.py#L42" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>stackoverflow_pairwise_distance</code>(<strong><code>x</code></strong>:<code>Tensor</code>)</p>
 </blockquote>
 
 </div>
@@ -333,19 +260,38 @@ Wall time: 2.34 ms
 </div>
 </div>
 
-<div class="output_wrapper">
-<div class="output">
+</div>
+    {% endraw %}
 
-<div class="output_area">
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
 
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%</span><span class="k">timeit</span> pdist(positions, method=&#39;stackoverflow&#39;)
+</pre></div>
 
-
-<div class="output_text output_subarea output_execute_result">
-<pre>tensor([2., 8., 2.])</pre>
+    </div>
+</div>
 </div>
 
 </div>
+    {% endraw %}
 
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">assert</span> <span class="n">torch</span><span class="o">.</span><span class="n">isclose</span><span class="p">(</span><span class="n">correct_distances</span><span class="p">,</span> 
+              <span class="n">pdist</span><span class="p">(</span><span class="n">positions</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s1">&#39;stackoverflow&#39;</span><span class="p">))</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+</pre></div>
+
+    </div>
 </div>
 </div>
 
@@ -377,7 +323,7 @@ Wall time: 2.34 ms
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="torch_pairwise_distance" class="doc_header"><code>torch_pairwise_distance</code><a href="https://github.com/eschmidt42/md/tree/master/md/distance.py#L44" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>torch_pairwise_distance</code>(<strong><code>x</code></strong>:<code>Tensor</code>)</p>
+<h4 id="torch_pairwise_distance" class="doc_header"><code>torch_pairwise_distance</code><a href="https://github.com/eschmidt42/md/tree/master/md/distance.py#L48" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>torch_pairwise_distance</code>(<strong><code>x</code></strong>:<code>Tensor</code>)</p>
 </blockquote>
 
 </div>
@@ -390,13 +336,6 @@ Wall time: 2.34 ms
 </div>
     {% endraw %}
 
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Wow <code>torch.nn.PairwiseDistance</code> seems to be 10x faster than <a href="/md/distance.html#pairwise_dist_gram"><code>pairwise_dist_gram</code></a></p>
-
-</div>
-</div>
-</div>
     {% raw %}
     
 <div class="cell border-box-sizing code_cell rendered">
@@ -408,22 +347,6 @@ Wall time: 2.34 ms
 </pre></div>
 
     </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-<div class="output_area">
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>tensor([2.0000, 8.0000, 2.0000])</pre>
-</div>
-
-</div>
-
 </div>
 </div>
 
@@ -441,20 +364,6 @@ Wall time: 2.34 ms
 </pre></div>
 
     </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-<div class="output_area">
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>164 µs ± 2.3 µs per loop (mean ± std. dev. of 7 runs, 10000 loops each)
-</pre>
-</div>
-</div>
-
 </div>
 </div>
 
@@ -481,11 +390,292 @@ Wall time: 2.34 ms
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>TODO:</p>
+<p><strong>Testing the scaling behavior</strong></p>
+
+</div>
+</div>
+</div>
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_markdown rendered_html output_subarea ">
+<h4 id="measure_execution_time" class="doc_header"><code>measure_execution_time</code><a href="https://github.com/eschmidt42/md/tree/master/md/distance.py#L57" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>measure_execution_time</code>(<strong><code>fun</code></strong>:<code>Callable</code>, <strong><code>args</code></strong>, <strong><code>kwargs</code></strong>, <strong><code>repetitions</code></strong>:<code>int</code>=<em><code>3</code></em>, <strong><code>number</code></strong>:<code>int</code>=<em><code>21</code></em>)</p>
+</blockquote>
+
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_markdown rendered_html output_subarea ">
+<h4 id="get_time_stats" class="doc_header"><code>get_time_stats</code><a href="https://github.com/eschmidt42/md/tree/master/md/distance.py#L63" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>get_time_stats</code>(<strong><code>fun</code></strong>:<code>Callable</code>, <strong><code>n</code></strong>:<code>int</code>, <strong><code>d</code></strong>:<code>int</code>, <strong><code>methods</code></strong>:<code>List</code>[<code>str</code>]=<em><code>['torch', 'stackoverflow']</code></em>, <strong><code>reps</code></strong>:<code>int</code>=<em><code>7</code></em>, <strong><code>number</code></strong>:<code>int</code>=<em><code>21</code></em>)</p>
+</blockquote>
+
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">n</span> <span class="o">=</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">1000</span><span class="p">]</span>
+<span class="c1"># number of dimensions</span>
+<span class="n">d</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">10</span><span class="p">]</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%time</span>
+<span class="n">timing_stats</span> <span class="o">=</span> <span class="n">get_time_stats</span><span class="p">(</span><span class="n">pdist</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">d</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">timing_stats</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">timing_stats_e</span> <span class="o">=</span> <span class="n">timing_stats</span><span class="o">.</span><span class="n">explode</span><span class="p">(</span><span class="s1">&#39;ts&#39;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">n_filter</span> <span class="o">=</span> <span class="mi">1000</span>
+<span class="n">d_filter</span> <span class="o">=</span> <span class="mi">3</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">mask_n</span> <span class="o">=</span> <span class="n">timing_stats</span><span class="p">[</span><span class="s1">&#39;n&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">n_filter</span>
+<span class="n">mask_d</span> <span class="o">=</span> <span class="n">timing_stats</span><span class="p">[</span><span class="s1">&#39;d&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">d_filter</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">px</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">timing_stats_e</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">mask_d</span><span class="p">],</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;n&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;ts&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;method&#39;</span><span class="p">,</span>
+           <span class="n">title</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;Performance @ </span><span class="si">{</span><span class="n">d_filter</span><span class="si">}</span><span class="s1"> dims&#39;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">px</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">timing_stats_e</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">mask_n</span><span class="p">],</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;d&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;ts&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;method&#39;</span><span class="p">,</span>
+           <span class="n">title</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;Performance @ </span><span class="si">{</span><span class="n">n_filter</span><span class="si">}</span><span class="s1"> samples&#39;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The following is based on stackexchange:</p>
 <ul>
-<li>test time scaling behavior of the distance functions</li>
-<li>mapping between flat and square form to answer nearest neighbor queries</li>
+<li><a href="https://math.stackexchange.com/questions/2134011/conversion-of-upper-triangle-linear-index-from-index-on-symmetrical-array">answer1</a></li>
+<li><a href="https://stackoverflow.com/questions/19143657/linear-indexing-in-symmetric-matrices">answer2</a></li>
 </ul>
+
+</div>
+</div>
+</div>
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_markdown rendered_html output_subarea ">
+<h2 id="DistanceMatrixIndexMapper" class="doc_header"><code>class</code> <code>DistanceMatrixIndexMapper</code><a href="https://github.com/eschmidt42/md/tree/master/md/distance.py#L82" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>DistanceMatrixIndexMapper</code>(<strong><code>num_pos</code></strong>:<code>int</code>)</p>
+</blockquote>
+
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">j</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">ix</span> <span class="o">=</span> <span class="mi">1</span>
+
+<span class="n">num_pos</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">positions</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">dmap</span> <span class="o">=</span> <span class="n">DistanceMatrixIndexMapper</span><span class="p">(</span><span class="n">num_pos</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Square $(i,j) \rightarrow ix$ flat</p>
 
 </div>
 </div>
@@ -497,7 +687,135 @@ Wall time: 2.34 ms
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span>timeit.Timer.repeat<span class="o">?</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">dmap</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="s1">&#39;brute_force_square2flat&#39;</span><span class="p">,</span> <span class="n">j</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">dmap</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="s1">&#39;analytical_square2flat&#39;</span><span class="p">,</span> <span class="n">j</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Flat $ix \rightarrow (i,j)$ square</p>
+
+</div>
+</div>
+</div>
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">dmap</span><span class="p">(</span><span class="n">ix</span><span class="p">,</span><span class="s1">&#39;brute_force_flat2square&#39;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">dmap</span><span class="p">(</span><span class="n">ix</span><span class="p">,</span><span class="s1">&#39;analytical_flat2square&#39;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>So the analytical version is quite a bit slower, but on the other hand does not have a memory scaling to consider, in contrast to the brute force variant</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Performing sanity checks</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Visualising the correct and the calculated (<code>-fun</code>) maps</p>
+
+</div>
+</div>
+</div>
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">go</span><span class="o">.</span><span class="n">Figure</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="p">[</span>
+    <span class="n">go</span><span class="o">.</span><span class="n">Scatter</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;ix&#39;</span><span class="p">],</span> <span class="n">y</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;ix&#39;</span><span class="p">],</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;markers&#39;</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;ix&#39;</span><span class="p">),</span>
+    <span class="n">go</span><span class="o">.</span><span class="n">Scatter</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">df_test</span><span class="p">[</span><span class="s1">&#39;ix&#39;</span><span class="p">],</span> <span class="n">y</span><span class="o">=</span><span class="n">df_test</span><span class="p">[</span><span class="s1">&#39;ix&#39;</span><span class="p">],</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;markers&#39;</span><span class="p">,</span> 
+               <span class="n">marker_symbol</span><span class="o">=</span><span class="s1">&#39;x-open&#39;</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;ix-fun&#39;</span><span class="p">),</span>
+<span class="p">],</span>
+         <span class="n">layout</span><span class="o">=</span><span class="n">go</span><span class="o">.</span><span class="n">Layout</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;Positions: </span><span class="si">{</span><span class="n">num_pos</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span> 
+                          <span class="n">xaxis_title</span><span class="o">=</span><span class="s1">&#39;ix&#39;</span><span class="p">,</span> <span class="n">yaxis_title</span><span class="o">=</span><span class="s1">&#39;calculated&#39;</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">go</span><span class="o">.</span><span class="n">Figure</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="p">[</span>
+    <span class="n">go</span><span class="o">.</span><span class="n">Scatter</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;ix&#39;</span><span class="p">],</span> <span class="n">y</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;i&#39;</span><span class="p">],</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;markers&#39;</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;i&#39;</span><span class="p">),</span>
+    <span class="n">go</span><span class="o">.</span><span class="n">Scatter</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;ix&#39;</span><span class="p">],</span> <span class="n">y</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;j&#39;</span><span class="p">],</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;markers&#39;</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;j&#39;</span><span class="p">),</span>
+    <span class="n">go</span><span class="o">.</span><span class="n">Scatter</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">df_test</span><span class="p">[</span><span class="s1">&#39;ix&#39;</span><span class="p">],</span> <span class="n">y</span><span class="o">=</span><span class="n">df_test</span><span class="p">[</span><span class="s1">&#39;i&#39;</span><span class="p">],</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;markers&#39;</span><span class="p">,</span> 
+               <span class="n">marker_symbol</span><span class="o">=</span><span class="s1">&#39;x-open&#39;</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;i-fun&#39;</span><span class="p">),</span>
+    <span class="n">go</span><span class="o">.</span><span class="n">Scatter</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">df_test</span><span class="p">[</span><span class="s1">&#39;ix&#39;</span><span class="p">],</span> <span class="n">y</span><span class="o">=</span><span class="n">df_test</span><span class="p">[</span><span class="s1">&#39;j&#39;</span><span class="p">],</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;markers&#39;</span><span class="p">,</span> 
+               <span class="n">marker_symbol</span><span class="o">=</span><span class="s1">&#39;x-open&#39;</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;j-fun&#39;</span><span class="p">),</span>
+<span class="p">],</span>
+         <span class="n">layout</span><span class="o">=</span><span class="n">go</span><span class="o">.</span><span class="n">Layout</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;Positions: </span><span class="si">{</span><span class="n">num_pos</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span> 
+                          <span class="n">xaxis_title</span><span class="o">=</span><span class="s1">&#39;ix&#39;</span><span class="p">,</span> <span class="n">yaxis_title</span><span class="o">=</span><span class="s1">&#39;calculated&#39;</span><span class="p">))</span>
 </pre></div>
 
     </div>
