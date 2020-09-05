@@ -10,7 +10,11 @@ index = {"PairwiseDistance": "00_distance.ipynb",
          "PairwiseDistance.torch_pairwise_distance": "00_distance.ipynb",
          "measure_execution_time": "00_distance.ipynb",
          "get_time_stats": "00_distance.ipynb",
-         "DistanceMatrixIndexMapper": "00_distance.ipynb"}
+         "DistanceMatrixIndexMapper": "00_distance.ipynb",
+         "Hull": "00_distance.ipynb",
+         "to_2dpositions": "00_distance.ipynb",
+         "Hull.to_2dpositions": "00_distance.ipynb",
+         "plot_atoms_and_hull": "00_distance.ipynb"}
 
 modules = ["distance.py"]
 

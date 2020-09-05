@@ -12,6 +12,9 @@ entries:
     - output: web,pdf
       title: Distance
       url: distance.html
+    - output: web,pdf
+      title: Neighborhood
+      url: neighborhood.html
     output: web
     title: md
   output: web
